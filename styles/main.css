@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login{
+    background: linear-gradient(135deg, #16328a 15%, #1f43a0 55%, #08a7de 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuadro-login{
+    padding: 28px 28px 24px;
+    background-color: #efeff3;
+    height: 432px;
+    width: 350px;
+    border-radius: 16px;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
+    text-align: center;;
+}
+
+.logo-alarya{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    margin: 0 auto 14px;
+}
+
+.titulo{
+    font-size: 26px;
+    font-weight: 800;
+    color: #1d87f0;
+    margin-bottom: 8px;
+}
+
+.texto{
+    font-size: 14px;
+    color: #444444;
+    margin-bottom: 8px;
+}
+
+.texto-2{
+    font-size: 10px;
+    color: #9b9b9b;
+    margin-bottom: 28px;
+}
