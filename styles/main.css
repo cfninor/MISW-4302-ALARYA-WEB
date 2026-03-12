@@ -19,7 +19,7 @@ body{
 .cuadro-login{
     padding: 28px 28px 24px;
     background-color: #efeff3;
-    height: 432px;
+    height: 530px;
     width: 330px;
     border-radius: 16px;
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
@@ -69,4 +69,41 @@ body{
     border-radius: 8px;
     height: 36px;
     width: 100%;
+}
+
+.items-alarya{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.item{
+    font-size: 11px;
+    color: #444444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.icono{
+    height: 23px;
+    width: 23px;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.i-verde{
+    background: linear-gradient(180deg, #12d96e 0%, #0db85b 100%);
+}
+.i-morado{
+    background: linear-gradient(180deg, #c26cff 0%, #9a49e6 100%);
+}
+.i-azul{
+    background: linear-gradient(180deg, #1cc7ec 0%, #0ea6d2 100%);
 }
