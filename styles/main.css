@@ -20,7 +20,7 @@ body{
     padding: 28px 28px 24px;
     background-color: #efeff3;
     height: 432px;
-    width: 350px;
+    width: 330px;
     border-radius: 16px;
     box-shadow: 0 16px 35px rgba(0, 0, 0, 0.28);
     text-align: center;;
@@ -52,4 +52,21 @@ body{
     font-size: 10px;
     color: #9b9b9b;
     margin-bottom: 28px;
+}
+
+.google{
+    background: linear-gradient(90deg, #2f80f7 0%, #10c3e9 100%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 8px 18px rgba(33, 125, 232, 0.35);
+    border: none;
+    border-radius: 8px;
+    height: 36px;
+    width: 100%;
 }
