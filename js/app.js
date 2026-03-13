@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cuentas = document.querySelectorAll(".cuenta-opcion");
     const botonSiguiente = document.querySelector(".boton-siguiente");
     const nombreUsuarioDashboard = document.querySelector(".usuario-nombre");
+    const correoGoogleConfig = document.querySelector(".correo-google-config");
 
     let cuentaSeleccionada = null;
 
@@ -17,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 const nombreCuenta = cuenta.getAttribute("data-nombre");
                 localStorage.setItem("nombreCuentaAlarya", nombreCuenta);
+                const correoCuenta = cuenta.getAttribute("data-correo");
+                localStorage.setItem("correoCuentaAlarya", correoCuenta);
 
                 botonSiguiente.classList.remove("boton-siguiente-deshabilitado");
                 botonSiguiente.classList.add("boton-siguiente-habilitado");
@@ -35,6 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (nombreGuardado) {
             nombreUsuarioDashboard.textContent = nombreGuardado;
+        }
+    }
+    if (correoGoogleConfig) {
+        const correoGuardado = localStorage.getItem("correoCuentaAlarya");
+
+        if (correoGuardado) {
+            correoGoogleConfig.textContent = correoGuardado;
         }
     }
 });
