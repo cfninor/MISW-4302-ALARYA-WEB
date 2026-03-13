@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contextos - ALARYA</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="pantalla-dashboard">
+        <header class="barra-superior">
+            <div class="marca-barra">
+                <img src="../assets/logos/alarya.png" alt="Logo ALARYA" class="logo-barra">
+                <span class="nombre-barra">ALARYA</span>
+            </div>
+
+            <div class="barra-acciones">
+                <div class="usuario-barra">
+                    <span class="usuario-punto"></span>
+                    <span class="usuario-nombre">Juan Pérez</span>
+                </div>
+                <a href="configuracion.html" class="configuracion-barra">⚙</a>
+            </div>
+        </header>
+
+        <div class="dashboard-cuerpo">
+            <aside class="menu-lateral">
+                <p class="menu-titulo">NAVEGACIÓN</p>
+
+                <nav class="menu-opciones">
+                    <a href="dashboard.html" class="menu-opcion">
+                        <span class="menu-icono">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="calendario.html" class="menu-opcion">
+                        <span class="menu-icono">📅</span>
+                        <span>Configurar Calendario</span>
+                    </a>
+
+                    <a href="contextos.html" class="menu-opcion menu-activo">
+                        <span class="menu-icono">🎯</span>
+                        <span>Configurar Contextos</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-contenido">
+                <div class="contextos-centro">
+                    <div class="contextos-encabezado">
+                        <div>
+                            <h1 class="contextos-titulo">Configurar Contextos</h1>
+                            <p class="contextos-texto">Organiza tus alarmas por categorías y desafíos</p>
+                        </div>
+
+                        <button type="button" class="contextos-ayuda" id="abrir-ayuda-contextos">?</button>
+                    </div>
+
+                    <div class="ayuda-contextos" id="ayuda-contextos">
+                        <div class="ayuda-contextos-contenido">
+                            <div class="ayuda-contextos-encabezado">
+                                <h2 class="ayuda-contextos-titulo">Ayuda - Configurar Contextos</h2>
+                                <button type="button" class="ayuda-contextos-cerrar" id="cerrar-ayuda-contextos">×</button>
+                            </div>
+
+                            <div class="ayuda-contextos-lista">
+                                <div class="ayuda-contextos-item">
+                                    <span class="ayuda-punto punto-azul"></span>
+                                    <span>Los contextos te ayudan a organizar tus alarmas por categorías</span>
+                                </div>
+
+                                <div class="ayuda-contextos-item">
+                                    <span class="ayuda-punto punto-celeste"></span>
+                                    <span>Puedes activar o desactivar contextos según tus necesidades</span>
+                                </div>
+
+                                <div class="ayuda-contextos-item">
+                                    <span class="ayuda-punto punto-morado"></span>
+                                    <span>Cada alarma puede asociarse a un contexto específico</span>
+                                </div>
+
+                                <div class="ayuda-contextos-item">
+                                    <span class="ayuda-punto punto-verde"></span>
+                                    <span>Los contextos activos se mostrarán en tu calendario</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section class="contextos-desafio">
+                        <div class="desafio-encabezado">
+                            <span class="desafio-icono">🔥</span>
+                            <h2 class="desafio-titulo">¿Qué es un DESAFÍO?</h2>
+                        </div>
+
+                        <p class="desafio-texto">
+                            Un desafío es una acción física que debes completar para desactivar tu alarma.
+                            La alarma no se apagará con un simple toque, sino que requerirá que realices
+                            una actividad física con tu celular, como caminar 10 pasos o hacer movimientos específicos.
+                        </p>
+
+                        <div class="desafio-lista">
+                            <div class="desafio-item">✓ Ejemplo: Configurar una alarma que solo se desactive después de caminar 10 pasos</div>
+                            <div class="desafio-item">✓ Los desafíos te ayudan a levantarte y activarte físicamente al despertar</div>
+                            <div class="desafio-item">✓ Cada contexto puede tener diferentes tipos de desafíos asociados</div>
+                        </div>
+                    </section>
+
+                    <section class="contextos-bloque">
+                        <h2 class="contextos-bloque-titulo">Contextos disponibles</h2>
+
+                        <div class="editor-contexto" id="editor-contexto">
+                            <h3 class="editor-contexto-titulo" id="editor-contexto-titulo">Editando: CONTEXTO</h3>
+
+                            <div class="editor-campo">
+                                <label for="editor-nombre">Nombre del contexto:</label>
+                                <input type="text" id="editor-nombre" class="editor-input">
+                            </div>
+
+                            <div class="editor-fila">
+                                <div class="editor-campo">
+                                    <label for="editor-inicio">Hora de inicio:</label>
+                                    <input type="time" id="editor-inicio" class="editor-input">
+                                </div>
+
+                                <div class="editor-campo">
+                                    <label for="editor-fin">Hora de fin:</label>
+                                    <input type="time" id="editor-fin" class="editor-input">
+                                </div>
+                            </div>
+
+                            <div class="acciones-editor">
+                                <div class="acciones-editor-izquierda">
+                                    <button type="button" class="boton-editor-guardar" id="guardar-contexto">Guardar cambios</button>
+                                    <button type="button" class="boton-editor-cancelar" id="cancelar-contexto">Cancelar</button>
+                                </div>
+
+                                <button type="button" class="boton-editor-eliminar" id="eliminar-contexto">Eliminar</button>
+                            </div>
+                        </div>
+
+                        <div class="lista-contextos" id="lista-contextos">
+                            <button
+                                type="button"
+                                class="contexto-item"
+                                data-nombre="DESPERTAR (DESAFÍO)"
+                                data-inicio="06:00"
+                                data-fin="08:00"
+                            >
+                                <div class="contexto-icono icono-despertar">🌅</div>
+                                <div class="contexto-textos">
+                                    <p class="contexto-nombre">DESPERTAR (DESAFÍO)</p>
+                                    <div class="contexto-etiquetas">
+                                        <span class="contexto-hora">06:00 - 08:00</span>
+                                        <span class="contexto-estado">Activo</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="contexto-item"
+                                data-nombre="TRABAJO"
+                                data-inicio="09:00"
+                                data-fin="18:00"
+                            >
+                                <div class="contexto-icono icono-trabajo">💼</div>
+                                <div class="contexto-textos">
+                                    <p class="contexto-nombre">TRABAJO</p>
+                                    <div class="contexto-etiquetas">
+                                        <span class="contexto-hora">09:00 - 18:00</span>
+                                        <span class="contexto-estado">Activo</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="contexto-item contexto-inactivo"
+                                data-nombre="GYM"
+                                data-inicio="19:00"
+                                data-fin="21:00"
+                            >
+                                <div class="contexto-icono icono-gym">💪</div>
+                                <div class="contexto-textos">
+                                    <p class="contexto-nombre">GYM</p>
+                                    <div class="contexto-etiquetas">
+                                        <span class="contexto-hora">19:00 - 21:00</span>
+                                        <span class="contexto-estado">Inactivo</span>
+                                    </div>
+                                </div>
+                            </button>
+
+                            <button
+                                type="button"
+                                class="contexto-item"
+                                data-nombre="ESTUDIO"
+                                data-inicio="20:00"
+                                data-fin="23:00"
+                            >
+                                <div class="contexto-icono icono-estudio">📚</div>
+                                <div class="contexto-textos">
+                                    <p class="contexto-nombre">ESTUDIO</p>
+                                    <div class="contexto-etiquetas">
+                                        <span class="contexto-hora">20:00 - 23:00</span>
+                                        <span class="contexto-estado">Activo</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <button type="button" class="boton-agregar-contexto" id="agregar-contexto">+ Agregar nuevo contexto</button>
+                    </section>
+
+                    <section class="nuevo-contexto-bloque" id="nuevo-contexto-bloque">
+                        <h2 class="nuevo-contexto-titulo">Crear nuevo contexto</h2>
+
+                        <div class="nuevo-contexto-campo">
+                            <label for="nuevo-nombre">Nombre del contexto:</label>
+                            <input type="text" id="nuevo-nombre" class="nuevo-contexto-input" placeholder="Ej: DESPERTAR, TRABAJO, GYM...">
+                        </div>
+
+                        <div class="nuevo-contexto-fila">
+                            <div class="nuevo-contexto-campo">
+                                <label for="nuevo-inicio">Hora de inicio:</label>
+                                <input type="time" id="nuevo-inicio" class="nuevo-contexto-input">
+                            </div>
+
+                            <div class="nuevo-contexto-campo">
+                                <label for="nuevo-fin">Hora de fin:</label>
+                                <input type="time" id="nuevo-fin" class="nuevo-contexto-input">
+                            </div>
+                        </div>
+
+                        <div class="nuevo-contexto-acciones">
+                            <button type="button" class="boton-nuevo-guardar" id="guardar-nuevo-contexto">Guardar</button>
+                            <button type="button" class="boton-nuevo-cancelar" id="cancelar-nuevo-contexto">Cancelar</button>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>

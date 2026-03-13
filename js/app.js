@@ -13,8 +13,28 @@ document.addEventListener("DOMContentLoaded", function () {
     const abrirAyuda = document.querySelector("#abrir-ayuda");
     const cerrarAyuda = document.querySelector("#cerrar-ayuda");
     const ayudaCalendario = document.querySelector("#ayuda-calendario");
-
+    const abrirAyudaContextos = document.querySelector("#abrir-ayuda-contextos");
+    const cerrarAyudaContextos = document.querySelector("#cerrar-ayuda-contextos");
+    const ayudaContextos = document.querySelector("#ayuda-contextos");
+    const listaContextos = document.querySelector("#lista-contextos");
+    const editorContexto = document.querySelector("#editor-contexto");
+    const editorContextoTitulo = document.querySelector("#editor-contexto-titulo");
+    const editorNombre = document.querySelector("#editor-nombre");
+    const editorInicio = document.querySelector("#editor-inicio");
+    const editorFin = document.querySelector("#editor-fin");
+    const guardarContexto = document.querySelector("#guardar-contexto");
+    const cancelarContexto = document.querySelector("#cancelar-contexto");
+    const eliminarContexto = document.querySelector("#eliminar-contexto");
+    const agregarContexto = document.querySelector("#agregar-contexto");
+    const nuevoContextoBloque = document.querySelector("#nuevo-contexto-bloque");
+    const nuevoNombre = document.querySelector("#nuevo-nombre");
+    const nuevoInicio = document.querySelector("#nuevo-inicio");
+    const nuevoFin = document.querySelector("#nuevo-fin");
+    const guardarNuevoContexto = document.querySelector("#guardar-nuevo-contexto");
+    const cancelarNuevoContexto = document.querySelector("#cancelar-nuevo-contexto");
+    
     let cuentaSeleccionada = null;
+    let contextoActual = null;
 
     if (cuentas.length && botonSiguiente) {
         cuentas.forEach(function (cuenta) {
@@ -139,6 +159,181 @@ document.addEventListener("DOMContentLoaded", function () {
 
         cerrarAyuda.addEventListener("click", function () {
             ayudaCalendario.classList.remove("ayuda-calendario-visible");
+        });
+    }
+
+    if (abrirAyudaContextos && cerrarAyudaContextos && ayudaContextos) {
+        abrirAyudaContextos.addEventListener("click", function () {
+            ayudaContextos.classList.add("ayuda-contextos-visible");
+        });
+
+        cerrarAyudaContextos.addEventListener("click", function () {
+            ayudaContextos.classList.remove("ayuda-contextos-visible");
+        });
+    }
+    function obtenerTextoHora(inicio, fin) {
+        if (inicio && fin) {
+            return inicio + " - " + fin;
+        }
+        return "Sin horario";
+    }
+
+    function cerrarEditorContexto() {
+        if (editorContexto) {
+            editorContexto.classList.remove("editor-contexto-visible");
+        }
+
+        document.querySelectorAll(".contexto-item").forEach(function (item) {
+            item.classList.remove("contexto-seleccionado");
+        });
+
+        contextoActual = null;
+    }
+
+    function cerrarNuevoContexto() {
+        if (nuevoContextoBloque) {
+            nuevoContextoBloque.classList.remove("nuevo-contexto-visible");
+        }
+
+        if (nuevoNombre) {
+            nuevoNombre.value = "";
+        }
+
+        if (nuevoInicio) {
+            nuevoInicio.value = "";
+        }
+
+        if (nuevoFin) {
+            nuevoFin.value = "";
+        }
+    }
+
+    function abrirEditorContexto(contexto) {
+        if (!editorContexto || !editorContextoTitulo || !editorNombre || !editorInicio || !editorFin) {
+            return;
+        }
+
+        document.querySelectorAll(".contexto-item").forEach(function (item) {
+            item.classList.remove("contexto-seleccionado");
+        });
+
+        contexto.classList.add("contexto-seleccionado");
+        contextoActual = contexto;
+
+        const nombre = contexto.getAttribute("data-nombre");
+        const inicio = contexto.getAttribute("data-inicio");
+        const fin = contexto.getAttribute("data-fin");
+
+        editorContextoTitulo.textContent = "Editando: " + nombre;
+        editorNombre.value = nombre;
+        editorInicio.value = inicio;
+        editorFin.value = fin;
+
+        editorContexto.classList.add("editor-contexto-visible");
+        cerrarNuevoContexto();
+    }
+
+    function ponerEventoContexto(contexto) {
+        contexto.addEventListener("click", function () {
+            abrirEditorContexto(contexto);
+        });
+    }
+
+    document.querySelectorAll(".contexto-item").forEach(function (contexto) {
+        ponerEventoContexto(contexto);
+    });
+
+    if (guardarContexto) {
+        guardarContexto.addEventListener("click", function () {
+            if (!contextoActual) {
+                return;
+            }
+
+            const nombreNuevo = editorNombre.value.trim();
+            const inicioNuevo = editorInicio.value;
+            const finNuevo = editorFin.value;
+
+            if (nombreNuevo === "") {
+                return;
+            }
+
+            contextoActual.setAttribute("data-nombre", nombreNuevo);
+            contextoActual.setAttribute("data-inicio", inicioNuevo);
+            contextoActual.setAttribute("data-fin", finNuevo);
+
+            const nombreVisible = contextoActual.querySelector(".contexto-nombre");
+            const horaVisible = contextoActual.querySelector(".contexto-hora");
+
+            if (nombreVisible) {
+                nombreVisible.textContent = nombreNuevo.toUpperCase();
+            }
+
+            if (horaVisible) {
+                horaVisible.textContent = obtenerTextoHora(inicioNuevo, finNuevo);
+            }
+
+            cerrarEditorContexto();
+        });
+    }
+
+    if (cancelarContexto) {
+        cancelarContexto.addEventListener("click", function () {
+            cerrarEditorContexto();
+        });
+    }
+
+    if (eliminarContexto) {
+        eliminarContexto.addEventListener("click", function () {
+            if (contextoActual) {
+                contextoActual.remove();
+                cerrarEditorContexto();
+            }
+        });
+    }
+
+    if (agregarContexto && nuevoContextoBloque) {
+        agregarContexto.addEventListener("click", function () {
+            cerrarEditorContexto();
+            nuevoContextoBloque.classList.add("nuevo-contexto-visible");
+        });
+    }
+
+    if (guardarNuevoContexto && listaContextos) {
+        guardarNuevoContexto.addEventListener("click", function () {
+            const nombre = nuevoNombre.value.trim();
+            const inicio = nuevoInicio.value;
+            const fin = nuevoFin.value;
+
+            if (nombre === "") {
+                return;
+            }
+
+            const nuevoContexto = document.createElement("button");
+            nuevoContexto.type = "button";
+            nuevoContexto.className = "contexto-item";
+            nuevoContexto.setAttribute("data-nombre", nombre);
+            nuevoContexto.setAttribute("data-inicio", inicio);
+            nuevoContexto.setAttribute("data-fin", fin);
+
+            nuevoContexto.innerHTML =
+                '<div class="contexto-icono icono-nuevo">📝</div>' +
+                '<div class="contexto-textos">' +
+                    '<p class="contexto-nombre">' + nombre.toUpperCase() + '</p>' +
+                    '<div class="contexto-etiquetas">' +
+                        '<span class="contexto-hora">' + obtenerTextoHora(inicio, fin) + '</span>' +
+                        '<span class="contexto-estado">Activo</span>' +
+                    '</div>' +
+                '</div>';
+
+            listaContextos.appendChild(nuevoContexto);
+            ponerEventoContexto(nuevoContexto);
+            cerrarNuevoContexto();
+        });
+    }
+
+    if (cancelarNuevoContexto) {
+        cancelarNuevoContexto.addEventListener("click", function () {
+            cerrarNuevoContexto();
         });
     }
 });
