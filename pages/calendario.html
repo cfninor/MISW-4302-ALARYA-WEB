@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario - ALARYA</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="pantalla-dashboard">
+        <header class="barra-superior">
+            <div class="marca-barra">
+                <img src="../assets/logos/alarya.png" alt="Logo ALARYA" class="logo-barra">
+                <span class="nombre-barra">ALARYA</span>
+            </div>
+
+            <div class="barra-acciones">
+                <div class="usuario-barra">
+                    <span class="usuario-punto"></span>
+                    <span class="usuario-nombre">Juan Pérez</span>
+                </div>
+                <a href="configuracion.html" class="configuracion-barra">⚙</a>
+            </div>
+        </header>
+
+        <div class="dashboard-cuerpo">
+            <aside class="menu-lateral">
+                <p class="menu-titulo">NAVEGACIÓN</p>
+
+                <nav class="menu-opciones">
+                    <a href="dashboard.html" class="menu-opcion">
+                        <span class="menu-icono">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="calendario.html" class="menu-opcion menu-activo">
+                        <span class="menu-icono">📅</span>
+                        <span>Configurar Calendario</span>
+                    </a>
+
+                    <a href="contextos.html" class="menu-opcion">
+                        <span class="menu-icono">🎯</span>
+                        <span>Configurar Contextos</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-contenido">
+                <div class="calendario-centro">
+                    <div class="calendario-encabezado">
+                        <div>
+                            <h1 class="calendario-titulo">Configurar Calendario</h1>
+                            <p class="calendario-texto">Define tus días laborales del mes</p>
+                        </div>
+
+                        <button type="button" class="calendario-ayuda" id="abrir-ayuda">?</button>
+                    </div>
+
+                    <div class="ayuda-calendario" id="ayuda-calendario">
+                        <div class="ayuda-calendario-contenido">
+                            <div class="ayuda-calendario-encabezado">
+                                <h2 class="ayuda-calendario-titulo">Ayuda - Configurar Calendario</h2>
+                                <button type="button" class="ayuda-calendario-cerrar" id="cerrar-ayuda">×</button>
+                            </div>
+                            <ul class="ayuda-calendario-lista">
+                                <li>Selecciona los días del mes en los que trabajas</li>
+                                <li>Los días marcados son tus días laborales</li>
+                                <li>Puedes hacer clic en cualquier día para agregarlo o quitarlo</li>
+                                <li>Esta información se usará para organizar tus alarmas y tareas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <section class="calendario-pasos">
+                        <h2 class="calendario-pasos-titulo">Pasos para configurar tu calendario</h2>
+
+                        <div class="paso-calendario">
+                            <span class="paso-numero">1</span>
+                            <div>
+                                <p class="paso-titulo">Marca tus días laborales</p>
+                                <p class="paso-texto">Haz clic en los días del calendario en los que trabajas</p>
+                            </div>
+                        </div>
+
+                        <div class="paso-calendario">
+                            <span class="paso-numero">2</span>
+                            <div>
+                                <p class="paso-titulo">Revisa tu selección</p>
+                                <p class="paso-texto">Los días marcados aparecerán con color azul</p>
+                            </div>
+                        </div>
+
+                        <div class="paso-calendario">
+                            <span class="paso-numero">3</span>
+                            <div>
+                                <p class="paso-titulo">Guarda tu configuración</p>
+                                <p class="paso-texto">Haz clic en el botón "Guardar" para aplicar los cambios</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="calendario-bloque">
+                        <div class="calendario-bloque-superior">
+                            <h2 class="mes-titulo">Diciembre 2026</h2>
+
+                            <div class="mes-acciones">
+                                <button type="button" class="mes-boton">←</button>
+                                <button type="button" class="mes-boton">→</button>
+                            </div>
+                        </div>
+
+                        <div class="dias-semana">
+                            <span>L</span>
+                            <span>M</span>
+                            <span>M</span>
+                            <span>J</span>
+                            <span>V</span>
+                            <span class="fin-semana-texto">S</span>
+                            <span class="fin-semana-texto">D</span>
+                        </div>
+
+                        <div class="calendario-grid">
+                            <div class="espacio-calendario"></div>
+                            <div class="espacio-calendario"></div>
+
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="1">1</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="2">2</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="3">3</button>
+                            <button type="button" class="dia-calendario" data-dia="4">4</button>
+                            <button type="button" class="dia-calendario" data-dia="5">5</button>
+
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="6">6</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="7">7</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="8">8</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="9">9</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="10">10</button>
+                            <button type="button" class="dia-calendario" data-dia="11">11</button>
+                            <button type="button" class="dia-calendario" data-dia="12">12</button>
+
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="13">13</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="14">14</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="15">15</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="16">16</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="17">17</button>
+                            <button type="button" class="dia-calendario" data-dia="18">18</button>
+                            <button type="button" class="dia-calendario" data-dia="19">19</button>
+
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="20">20</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="21">21</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="22">22</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="23">23</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="24">24</button>
+                            <button type="button" class="dia-calendario" data-dia="25">25</button>
+                            <button type="button" class="dia-calendario" data-dia="26">26</button>
+
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="27">27</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="28">28</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="29">29</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="30">30</button>
+                            <button type="button" class="dia-calendario dia-laboral" data-dia="31">31</button>
+                        </div>
+
+                        <div class="leyenda-calendario">
+                            <div class="leyenda-item">
+                                <span class="leyenda-color leyenda-laboral"></span>
+                                <span>Día laboral</span>
+                            </div>
+
+                            <div class="leyenda-item">
+                                <span class="leyenda-color leyenda-no-laboral"></span>
+                                <span>Día no laboral</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="resumen-calendario">
+                        <div class="resumen-calendario-texto">
+                            <h2 class="resumen-calendario-titulo">Resumen de tu configuración</h2>
+
+                            <p class="resumen-calendario-numero-texto">
+                                Días laborales seleccionados:
+                                <span class="cantidad-dias-laborales">23</span> de 31
+                            </p>
+
+                            <p class="resumen-calendario-descripcion">
+                                Has configurado <span class="cantidad-dias-laborales-texto">23</span> días como laborales en este mes
+                            </p>
+                        </div>
+
+                        <div class="resumen-calendario-caja">
+                            <span class="resumen-calendario-numero">23</span>
+                            <span class="resumen-calendario-etiqueta">DÍAS</span>
+                        </div>
+                    </section>
+
+                    <div class="acciones-calendario">
+                        <a href="dashboard.html" class="boton-guardar-calendario">Guardar configuración</button>
+                        <a href="dashboard.html" class="boton-cancelar-calendario">Cancelar</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+</body>
+</html>
