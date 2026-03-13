@@ -16,8 +16,6 @@ Maquetación de Front End - Alarya - WEB
 ```text
 ALARYA-WEB/
 ├── assets/                # Recursos de la interfaz
-│   ├── icons/             # Íconos
-│   ├── images/            # Imágenes
 │   └── logos/             # Logotipos
 ├── js/                    # JavaScript
 │   └── app.js             
