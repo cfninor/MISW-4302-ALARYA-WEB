@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - ALARYA</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <div class="pantalla-dashboard">
+      <header class="barra-superior">
+        <div class="marca-barra">
+          <img
+            src="../assets/logos/alarya.png"
+            alt="Logo ALARYA"
+            class="logo-barra"
+          />
+          <span class="nombre-barra">ALARYA</span>
+        </div>
+        <div class="barra-acciones">
+          <div class="usuario-barra">
+            <span class="usuario-punto"></span>
+            <span class="usuario-nombre">Juan Pérez</span>
+        </div>
+          <a href="configuracion.html" class="configuracion-barra">⚙</a>
+        </div>
+      </header>
+      <div class="dashboard-cuerpo">
+        <aside class="menu-lateral">
+          <p class="menu-titulo">NAVEGACIÓN</p>
+          <nav class="menu-opciones">
+            <a href="dashboard.html" class="menu-opcion menu-activo">
+              <span class="menu-icono">📊</span>
+              <span>Dashboard</span>
+            </a>
+            <a href="calendario.html" class="menu-opcion">
+              <span class="menu-icono">📅</span>
+              <span>Configurar Calendario</span>
+            </a>
+            <a href="contextos.html" class="menu-opcion">
+              <span class="menu-icono">🎯</span>
+              <span>Configurar Contextos</span>
+            </a>
+          </nav>
+        </aside>
+        <main class="dashboard-contenido">
+          <div class="dashboard-centro">
+            <h1 class="dashboard-titulo">Dashboard</h1>
+            <p class="dashboard-texto">Resumen de tu actividad y rendimiento</p>
+
+            <div class="dashboard-fila">
+              <section class="tarjeta-dashboard tarjeta-grafica">
+                <div class="tarjeta-encabezado">
+                  <h2 class="tarjeta-titulo">Estadísticas Semanales</h2>
+                  <span class="tarjeta-etiqueta">Esta semana</span>
+                </div>
+
+                <div class="grafica-barras">
+                  <div class="barra barra-1"></div>
+                  <div class="barra barra-2"></div>
+                  <div class="barra barra-3"></div>
+                  <div class="barra barra-4"></div>
+                  <div class="barra barra-5"></div>
+                  <div class="barra barra-gris barra-6"></div>
+                  <div class="barra barra-gris barra-7"></div>
+                </div>
+
+                <div class="grafica-etiquetas">
+                  <span>L</span>
+                  <span>M</span>
+                  <span>M</span>
+                  <span>J</span>
+                  <span>V</span>
+                  <span>S</span>
+                  <span>D</span>
+                </div>
+              </section>
+
+              <section class="tarjeta-dashboard tarjeta-grafica">
+                <div class="tarjeta-encabezado">
+                  <h2 class="tarjeta-titulo">Alarmas Completadas</h2>
+                  <span class="tarjeta-etiqueta tarjeta-etiqueta-verde"
+                    >+12% vs anterior</span
+                  >
+                </div>
+
+                <div class="grafica-linea">
+                  <svg
+                    viewBox="0 0 280 140"
+                    class="svg-linea"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <polygon
+                      points="30,105 60,82 90,92 120,58 150,70 180,45 210,50 240,38 240,120 30,120"
+                      class="area-linea"
+                    ></polygon>
+                    <polyline
+                      points="30,105 60,82 90,92 120,58 150,70 180,45 210,50 240,38"
+                      class="trazo-linea"
+                    ></polyline>
+                    <circle cx="30" cy="105" r="6" class="punto-linea"></circle>
+                    <circle cx="60" cy="82" r="6" class="punto-linea"></circle>
+                    <circle cx="90" cy="92" r="6" class="punto-linea"></circle>
+                    <circle cx="120" cy="58" r="6" class="punto-linea"></circle>
+                    <circle cx="150" cy="70" r="6" class="punto-linea"></circle>
+                    <circle cx="180" cy="45" r="6" class="punto-linea"></circle>
+                    <circle cx="210" cy="50" r="6" class="punto-linea"></circle>
+                    <circle cx="240" cy="38" r="6" class="punto-linea"></circle>
+                  </svg>
+                </div>
+              </section>
+            </div>
+
+            <div class="dashboard-fila">
+              <a
+                href="calendario.html"
+                class="tarjeta-dashboard tarjeta-acceso"
+              >
+                <div class="acceso-icono acceso-morado">📅</div>
+                <div class="acceso-texto">
+                  <h2 class="acceso-titulo">Configurar Calendario</h2>
+                  <p class="acceso-descripcion">
+                    Define tus días laborales y horarios de trabajo
+                  </p>
+                </div>
+              </a>
+
+              <a href="contextos.html" class="tarjeta-dashboard tarjeta-acceso">
+                <div class="acceso-icono acceso-azul">🎯</div>
+                <div class="acceso-texto">
+                  <h2 class="acceso-titulo">Configurar Contextos</h2>
+                  <p class="acceso-descripcion">
+                    Organiza tus alarmas por contextos y desafíos
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            <section class="resumen-hoy">
+              <div class="resumen-encabezado">
+                <h2 class="resumen-titulo">Resumen de hoy</h2>
+                <span class="resumen-fecha">Viernes, 27 Feb 2026</span>
+              </div>
+
+              <div class="resumen-lista">
+                <div class="resumen-item">
+                  <p class="resumen-item-texto">Alarmas pendientes</p>
+                  <p class="resumen-item-numero">8</p>
+                </div>
+
+                <div class="resumen-item">
+                  <p class="resumen-item-texto">Alarmas completadas</p>
+                  <p class="resumen-item-numero">12</p>
+                </div>
+
+                <div class="resumen-item">
+                  <p class="resumen-item-texto">Contextos activos</p>
+                  <p class="resumen-item-numero">4</p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
