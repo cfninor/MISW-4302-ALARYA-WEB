@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - ALARYA</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <div class="pantalla-dashboard">
+        <header class="barra-superior">
+            <div class="marca-barra">
+                <img src="../assets/logos/alarya.png" alt="Logo ALARYA" class="logo-barra">
+                <span class="nombre-barra">ALARYA</span>
+            </div>
+
+            <div class="barra-acciones">
+                <div class="usuario-barra">
+                    <span class="usuario-punto"></span>
+                    <span class="usuario-nombre">Juan Pérez</span>
+                </div>
+                <a href="configuracion.html" class="configuracion-barra configuracion-activa">⚙</a>
+            </div>
+        </header>
+
+        <div class="dashboard-cuerpo">
+            <aside class="menu-lateral">
+                <p class="menu-titulo">NAVEGACIÓN</p>
+
+                <nav class="menu-opciones">
+                    <a href="dashboard.html" class="menu-opcion">
+                        <span class="menu-icono">📊</span>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="calendario.html" class="menu-opcion">
+                        <span class="menu-icono">📅</span>
+                        <span>Configurar Calendario</span>
+                    </a>
+
+                    <a href="contextos.html" class="menu-opcion">
+                        <span class="menu-icono">🎯</span>
+                        <span>Configurar Contextos</span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="dashboard-contenido">
+                <div class="configuracion-centro">
+                    <h1 class="configuracion-titulo">Configuración de Alarmas</h1>
+                    <p class="configuracion-texto">Personaliza tu experiencia con ALARYA</p>
+
+                    <section class="configuracion-bloque">
+                        <div class="configuracion-bloque-titulo">
+                            <span class="configuracion-bloque-icono icono-bloque-azul">🕒</span>
+                            <h2>Configuración de horarios de trabajo</h2>
+                        </div>
+
+                        <div class="configuracion-horas">
+                            <div class="campo-grupo">
+                                <label for="hora-inicio">Hora de inicio:</label>
+                                <input type="time" id="hora-inicio" class="campo-configuracion">
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label for="hora-fin">Hora de fin:</label>
+                                <input type="time" id="hora-fin" class="campo-configuracion">
+                            </div>
+                        </div>
+
+                        <div class="campo-grupo">
+                            <label>Días de trabajo:</label>
+                            <div class="dias-trabajo">
+                                <button class="dia-trabajo dia-activo" type="button">L</button>
+                                <button class="dia-trabajo dia-activo" type="button">M</button>
+                                <button class="dia-trabajo dia-activo" type="button">M</button>
+                                <button class="dia-trabajo dia-activo" type="button">J</button>
+                                <button class="dia-trabajo dia-activo" type="button">V</button>
+                                <button class="dia-trabajo" type="button">S</button>
+                                <button class="dia-trabajo" type="button">D</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="configuracion-bloque">
+                        <div class="configuracion-bloque-titulo">
+                            <span class="configuracion-bloque-icono icono-bloque-morado">🔔</span>
+                            <h2>Notificaciones</h2>
+                        </div>
+
+                        <div class="fila-configuracion fila-configuracion-activa">
+                            <div class="fila-izquierda">
+                                <span class="fila-icono fila-icono-activo">✓</span>
+                                <span>Activar notificaciones de alarmas</span>
+                            </div>
+                            <button class="interruptor interruptor-activo" type="button">
+                                <span class="interruptor-circulo"></span>
+                            </button>
+                        </div>
+
+                        <div class="fila-configuracion">
+                            <div class="fila-izquierda">
+                                <span class="fila-icono">✓</span>
+                                <span>Notificar con anticipación (15 min antes)</span>
+                            </div>
+                            <button class="interruptor" type="button">
+                                <span class="interruptor-circulo"></span>
+                            </button>
+                        </div>
+
+                        <div class="fila-configuracion fila-configuracion-activa">
+                            <div class="fila-izquierda">
+                                <span class="fila-icono fila-icono-activo">✓</span>
+                                <span>Sonido de notificación</span>
+                            </div>
+                            <button class="interruptor interruptor-activo" type="button">
+                                <span class="interruptor-circulo"></span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <section class="configuracion-bloque">
+                        <div class="configuracion-bloque-titulo">
+                            <span class="configuracion-bloque-icono icono-google-config"></span>
+                            <h2>Integración con Google</h2>
+                        </div>
+
+                        <div class="fila-google-conectada">
+                            <div class="fila-google-info">
+                                <span class="google-check">✓</span>
+                                <div>
+                                    <p class="google-cuenta-titulo">Cuenta conectada</p>
+                                    <p class="google-cuenta-correo">usuario@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <a href="../index.html" class="boton-google-secundario">Desconectar</a>
+                        </div>
+
+                        <div class="fila-configuracion fila-configuracion-activa">
+                            <div class="fila-izquierda">
+                                <span class="fila-icono fila-icono-activo">✓</span>
+                                <span>Sincronizar alarmas con Google Calendar</span>
+                            </div>
+                            <button class="interruptor interruptor-activo" type="button">
+                                <span class="interruptor-circulo"></span>
+                            </button>
+                        </div>
+
+                        <div class="fila-configuracion">
+                            <div class="fila-izquierda">
+                                <span class="fila-icono">✓</span>
+                                <span>Importar eventos existentes</span>
+                            </div>
+                            <button class="interruptor" type="button">
+                                <span class="interruptor-circulo"></span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <div class="acciones-configuracion">
+                        <a href="dashboard.html" class="boton-guardar">Guardar cambios</a>
+                        <a href="dashboard.html" class="boton-cancelar-configuracion">Cancelar</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
