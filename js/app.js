@@ -4,7 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const nombreUsuarioDashboard = document.querySelector(".usuario-nombre");
     const correoGoogleConfig = document.querySelector(".correo-google-config");
     const diasTrabajo = document.querySelectorAll(".dia-trabajo");
-    const interruptores = document.querySelectorAll(".interruptor");
+    const interruptores = document.querySelectorAll(".interruptor")
+    const diasCalendario = document.querySelectorAll(".dia-calendario");
+    const cantidadDiasLaborales = document.querySelector(".cantidad-dias-laborales");
+    const cantidadDiasLaboralesTexto = document.querySelector(".cantidad-dias-laborales-texto");
+    const resumenCalendarioNumero = document.querySelector(".resumen-calendario-numero");
+    const botonGuardarCalendario = document.querySelector(".boton-guardar-calendario");
+    const abrirAyuda = document.querySelector("#abrir-ayuda");
+    const cerrarAyuda = document.querySelector("#cerrar-ayuda");
+    const ayudaCalendario = document.querySelector("#ayuda-calendario");
 
     let cuentaSeleccionada = null;
 
@@ -81,6 +89,56 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
             });
+        });
+    }
+    function actualizarResumenCalendario() {
+        const totalLaborales = document.querySelectorAll(".dia-calendario.dia-laboral").length;
+
+        if (cantidadDiasLaborales) {
+            cantidadDiasLaborales.textContent = totalLaborales;
+        }
+
+        if (cantidadDiasLaboralesTexto) {
+            cantidadDiasLaboralesTexto.textContent = totalLaborales;
+        }
+
+        if (resumenCalendarioNumero) {
+            resumenCalendarioNumero.textContent = totalLaborales;
+        }
+    }
+
+    if (diasCalendario.length) {
+        diasCalendario.forEach(function (dia) {
+            dia.addEventListener("click", function () {
+                dia.classList.toggle("dia-laboral");
+                actualizarResumenCalendario();
+            });
+        });
+
+        actualizarResumenCalendario();
+    }
+
+    if (botonGuardarCalendario) {
+        botonGuardarCalendario.addEventListener("click", function () {
+            const diasSeleccionados = [];
+
+            diasCalendario.forEach(function (dia) {
+                if (dia.classList.contains("dia-laboral")) {
+                    diasSeleccionados.push(dia.getAttribute("data-dia"));
+                }
+            });
+
+            localStorage.setItem("diasCalendarioAlarya", JSON.stringify(diasSeleccionados));
+            window.location.href = "dashboard.html";
+        });
+    }
+    if (abrirAyuda && cerrarAyuda && ayudaCalendario) {
+        abrirAyuda.addEventListener("click", function () {
+            ayudaCalendario.classList.add("ayuda-calendario-visible");
+        });
+
+        cerrarAyuda.addEventListener("click", function () {
+            ayudaCalendario.classList.remove("ayuda-calendario-visible");
         });
     }
 });
